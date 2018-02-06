@@ -19,11 +19,65 @@
       }
     ]
   </script>
+  <link href="https://fonts.googleapis.com/css?family=Oranienbaum&amp;subset=cyrillic" rel="stylesheet">
+  <style>
+    body{
+      display:flex;
+      height:100vh;
+      background-color:#212121;
+      margin: 0
+    }
+
+    section#quote{
+      margin: auto;
+      background-color: #c5c5c5;
+      padding: 0 10px 5px;
+      outline: 7px ridge #fff;
+      max-width: 60%;
+      min-width: 320px
+    }
+
+    h1#quote_text{
+      font-family: 'Oranienbaum', serif
+    }
+
+    q{
+      display: block;
+      text-align: right
+    }
+  </style>
 </head>
 <body>
+<section id="quote">
+  <h1 id="quote_text"></h1>
+  <q id="quote_signature"></q>
+</section>
+
 <script>
-  quotes = JSON.parse(document.getElementById("quotes_json").innerText)
-  console.log(quotes)
+  function get_random_array_item(items) {
+    return items[Math.floor(Math.random()*items.length)];
+  }
+
+
+  function get_random_quote(quotes) {
+    let quote = get_random_array_item(quotes);
+
+    quote.signature = quote.signature || "Неизвестный автор";
+    return quote
+  }
+
+  let quotes = JSON.parse(document.getElementById("quotes_json").innerText);
+  console.log(quotes);
+
+
+  let quote = get_random_quote(quotes);
+
+  let phrase_container = document.getElementById("quote_text");
+  let signature_container = document.getElementById("quote_signature");
+
+  phrase_container.innerText = quote.phrase;
+  signature_container.innerText = quote.signature
+
 </script>
 </body>
 </html>
