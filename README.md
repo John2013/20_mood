@@ -1,6 +1,10 @@
 # Site for the Mood
 
-[TODO. There will be project description]
+Website showing funny quotes
+
+# How to open
+
+[Click](https://john2013.github.io/20_mood/)
 
 # Project Goals
 
