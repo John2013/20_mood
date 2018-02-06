@@ -66,18 +66,19 @@
     return quote
   }
 
+
+  function paste_text(DOM_id, text) {
+    document.getElementById(DOM_id).innerText = text
+  }
+
+
   let quotes = JSON.parse(document.getElementById("quotes_json").innerText);
   console.log(quotes);
 
-
   let quote = get_random_quote(quotes);
 
-  let phrase_container = document.getElementById("quote_text");
-  let signature_container = document.getElementById("quote_signature");
-
-  phrase_container.innerText = quote.phrase;
-  signature_container.innerText = quote.signature
-
+  paste_text("quote_text", quote.phrase);
+  paste_text("quote_signature", quote.signature);
 </script>
 </body>
 </html>
